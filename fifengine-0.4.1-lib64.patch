@@ -1,0 +1,40 @@
+diff -up fifengine-0.4.1/CMakeLists.txt.omv~ fifengine-0.4.1/CMakeLists.txt
+--- fifengine-0.4.1/CMakeLists.txt.omv~	2018-06-16 22:09:51.095194455 +0200
++++ fifengine-0.4.1/CMakeLists.txt	2018-06-16 22:12:18.077186356 +0200
+@@ -881,20 +881,25 @@ if(build-python)
+       COMMAND  ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print (get_python_lib())" 
+       OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE
+     )
++    execute_process(
++      COMMAND  ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print (get_python_lib(1))" 
++      OUTPUT_VARIABLE PYTHON_SITEARCH_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE
++    )
+ 
+     # Slash-Fix: Cmake would create a warning, when using the variable in FILES or DIRECTORY without changing it.
+     file(TO_CMAKE_PATH ${PYTHON_SITE_PACKAGES} PYTHON_SITE_PACKAGES)
++    file(TO_CMAKE_PATH ${PYTHON_SITEARCH_PACKAGES} PYTHON_SITEARCH_PACKAGES)
+  endif(NOT DEFINED PYTHON_SITE_PACKAGES)
+ 
+   message(STATUS "    Python install directory is '${PYTHON_SITE_PACKAGES}/fife'.")
+ 
+-  install(TARGETS     _fife                                               DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
++  install(TARGETS     _fife                                               DESTINATION ${PYTHON_SITEARCH_PACKAGES})
+   install(FILES       ${PROJECT_BINARY_DIR}/fife.py                       DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
+   install(FILES       ${CMAKE_SOURCE_DIR}/engine/python/fife/__init__.py  DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
+   install(DIRECTORY   ${CMAKE_SOURCE_DIR}/engine/python/fife/extensions   DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
+ 
+   if(fifechan)
+-    install(TARGETS   _fifechan                                           DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
++    install(TARGETS   _fifechan                                           DESTINATION ${PYTHON_SITEARCH_PACKAGES})
+     install(FILES     ${PROJECT_BINARY_DIR}/fifechan.py                   DESTINATION ${PYTHON_SITE_PACKAGES}/fife)
+   endif(fifechan)
+ endif(build-python)
+@@ -920,7 +925,7 @@ if(build-library)
+   target_link_libraries(fife ${OPENGL_gl_LIBRARY})
+   target_link_libraries(fife ${FIFECHAN_LIBRARIES})
+   
+-  install(TARGETS fife DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
++  install(TARGETS fife DESTINATION ${CMAKE_INSTALL_LIBDIR})
+   install(FILES ${PROJECT_SOURCE_DIR}/engine/core/version.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/fife/core/)
+   MACRO(INSTALL_HEADERS_WITH_DIRECTORY HEADER_LIST)
+   

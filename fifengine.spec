@@ -19,6 +19,7 @@ BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	pkgconfig(xcursor)
 BuildRequires:	tinyxml-devel
 BuildRequires:	fifechan-sdl-devel
 BuildRequires:	fifechan-opengl-devel

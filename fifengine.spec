@@ -3,8 +3,8 @@
 %define devname %mklibname fife -d
 
 Name:		fifengine
-Version:	0.4.1
-Release:	2
+Version:	0.4.2
+Release:	1
 Source0:	https://github.com/fifengine/fifengine/archive/%{version}.tar.gz
 Patch0:		fifengine-0.4.1-lib64.patch
 Summary:	Isometric game engine
@@ -12,15 +12,18 @@ URL:		http://fifengine.net/
 License:	LGPL
 Group:		System/Libraries
 BuildRequires:	cmake ninja
+BuildRequires:	pkgconfig(glew)
 BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_ttf)
+BuildRequires:	pkgconfig(SDL2_image)
+BuildRequires:	pkgconfig(tinyxml)
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(xcursor)
-BuildRequires:	tinyxml-devel
 BuildRequires:	fifechan-sdl-devel
 BuildRequires:	fifechan-opengl-devel
 BuildRequires:	boost-devel

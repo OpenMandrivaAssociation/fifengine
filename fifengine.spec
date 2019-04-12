@@ -17,7 +17,6 @@ BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_ttf)
 BuildRequires:	pkgconfig(SDL2_image)
-BuildRequires:	pkgconfig(tinyxml)
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(libpng)
@@ -28,6 +27,7 @@ BuildRequires:	fifechan-sdl-devel
 BuildRequires:	fifechan-opengl-devel
 BuildRequires:	boost-devel
 BuildRequires:	swig
+BuildRequires:	tinyxml-devel
 
 %description
 FIFE is a free, open-source cross-platform game engine.

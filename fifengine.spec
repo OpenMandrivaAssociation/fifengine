@@ -13,7 +13,7 @@ License:	LGPL
 Group:		System/Libraries
 BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(glew)
-BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_ttf)
 BuildRequires:	pkgconfig(SDL2_image)

@@ -78,8 +78,6 @@ Python 3.x bindings to the FIFE game engine
 %build
 %cmake \
 	-Dbuild-library:BOOL=ON \
-	-DPYTHON_SITE_PACKAGES=%{python_sitearch} \
-	-DPYTHON_EXECUTABLE="/usr/bin/python" \
 	-G Ninja
 %ninja
 
@@ -96,5 +94,5 @@ Python 3.x bindings to the FIFE game engine
 %{_includedir}/fife
 
 %files -n python-%{name}
-%{python_sitearch}/*.so
-%{python_sitelib}/fife
+%{python_sitearch}/*
+#{python_sitelib}/fife

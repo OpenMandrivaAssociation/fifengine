@@ -63,14 +63,14 @@ Requires:	%{libname} = %{EVRD}
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
-%package -n python2-%{name}
-Summary:	Python 2.x bindings to the FIFE game engine
+%package -n python-%{name}
+Summary:	Python 3.x bindings to the FIFE game engine
 Group:		Development/Python
 Requires:	%{libname} = %{EVRD}
 Requires:	python2
 
-%description -n python2-%{name}
-Python 2.x bindings to the FIFE game engine
+%description -n python-%{name}
+Python 3.x bindings to the FIFE game engine
 
 %prep
 %autosetup -p1
@@ -93,6 +93,6 @@ Python 2.x bindings to the FIFE game engine
 %{_libdir}/libfife.so
 %{_includedir}/fife
 
-%files -n python2-%{name}
-%{python2_sitearch}/*.so
-%{python2_sitelib}/fife
+%files -n python-%{name}
+%{python_sitearch}/*.so
+%{python_sitelib}/fife

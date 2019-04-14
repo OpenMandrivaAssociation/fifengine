@@ -1,30 +1,36 @@
+%define _disable_ld_no_undefined 1
+%define _disable_lto 1
+
 %define major 0
 %define libname %mklibname fife %{major}
 %define devname %mklibname fife -d
 
 Name:		fifengine
-Version:	0.4.1
-Release:	2
-Source0:	https://github.com/fifengine/fifengine/archive/%{version}.tar.gz
-Patch0:		fifengine-0.4.1-lib64.patch
+Version:	0.4.2
+Release:	1
+Source0:	https://github.com/fifengine/fifengine/archive/%{name}-%{version}.tar.gz
+#Patch0:		fifengine-0.4.1-lib64.patch
 Summary:	Isometric game engine
 URL:		http://fifengine.net/
 License:	LGPL
 Group:		System/Libraries
 BuildRequires:	cmake ninja
-BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(glew)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_ttf)
+BuildRequires:	pkgconfig(SDL2_image)
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(openal)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(xcursor)
-BuildRequires:	tinyxml-devel
 BuildRequires:	fifechan-sdl-devel
 BuildRequires:	fifechan-opengl-devel
 BuildRequires:	boost-devel
 BuildRequires:	swig
+BuildRequires:	tinyxml-devel
 
 %description
 FIFE is a free, open-source cross-platform game engine.
@@ -57,14 +63,14 @@ Requires:	%{libname} = %{EVRD}
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
-%package -n python2-%{name}
-Summary:	Python 2.x bindings to the FIFE game engine
+%package -n python-%{name}
+Summary:	Python 3.x bindings to the FIFE game engine
 Group:		Development/Python
 Requires:	%{libname} = %{EVRD}
 Requires:	python2
 
-%description -n python2-%{name}
-Python 2.x bindings to the FIFE game engine
+%description -n python-%{name}
+Python 3.x bindings to the FIFE game engine
 
 %prep
 %autosetup -p1
@@ -87,6 +93,6 @@ Python 2.x bindings to the FIFE game engine
 %{_libdir}/libfife.so
 %{_includedir}/fife
 
-%files -n python2-%{name}
-%{python2_sitearch}/*.so
-%{python2_sitelib}/fife
+%files -n python-%{name}
+%{python_sitearch}/*
+#{python_sitelib}/fife

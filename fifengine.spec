@@ -78,6 +78,8 @@ Python 3.x bindings to the FIFE game engine
 %build
 %cmake \
 	-Dbuild-library:BOOL=ON \
+	-DPYTHON_SITE_PACKAGES=%{python_sitearch} \
+	-DPYTHON_EXECUTABLE="/usr/bin/python" \
 	-G Ninja
 %ninja
 

@@ -67,13 +67,26 @@ Development files (Headers etc.) for %{name}.
 Summary:	Python 3.x bindings to the FIFE game engine
 Group:		Development/Python
 Requires:	%{libname} = %{EVRD}
-Requires:	python2
+Requires:	python
 
 %description -n python-%{name}
 Python 3.x bindings to the FIFE game engine
 
 %prep
 %autosetup -p1
+
+sed -i CMakeLists.txt -e 's@\${CMAKE_INSTALL_PREFIX}/lib@\${CMAKE_INSTALL_PREFIX}/%{_lib}@'
+
+# Drop deprecated swig options
+sed -i CMakeLists.txt \
+  -e '/CMAKE_SWIG_FLAGS/s@-modern\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-nosafecstrings\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-noproxydel\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-fastinit\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-fastunpack\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-fastquery\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-modernargs\s\?@@' \
+  -e '/CMAKE_SWIG_FLAGS/s@-nobuildnone\s\?@@'
 
 %build
 %cmake \

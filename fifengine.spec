@@ -91,6 +91,13 @@ sed -i CMakeLists.txt \
 %build
 %cmake \
 	-Dbuild-library:BOOL=ON \
+	-DPYTHON_SITE_PACKAGES=%{python3_sitearch} \
+	-DPYTHON_EXECUTABLE="%__python3" \
+	-Dbuild-library=ON \
+	-Dbuild-python=ON \
+	-Drend-camzone=ON \
+	-Drend-grid=ON \
+	-Duse-githash=OFF \
 	-G Ninja
 %ninja
 

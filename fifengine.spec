@@ -7,7 +7,7 @@
 
 Name:		fifengine
 Version:	0.4.2
-Release:	3
+Release:	4
 Source0:	https://github.com/fifengine/fifengine/archive/%{name}-%{version}.tar.gz
 #Patch0:		fifengine-0.4.1-lib64.patch
 Summary:	Isometric game engine

@@ -1,0 +1,10 @@
+--- a/engine/core/vfs/zip/zipnode.cpp
++++ b/engine/core/vfs/zip/zipnode.cpp
+@@ -28,6 +28,7 @@
+ #include "vfs/fife_boost_filesystem.h"
+
+ #include "zipnode.h"
++#include <algorithm>
+
+ namespace {
+     /** helper function to find a value in a ZipNodeContainer

@@ -13,6 +13,7 @@ Source0:	https://github.com/fifengine/fifengine/archive/%{name}-%{version}.tar.g
 Patch1:		https://github.com/fifengine/fifengine/commit/cf295fd98a8fba080f6305c27be56d10ab7ce94d.patch
 Patch2:		https://github.com/fifengine/fifengine/commit/d14f232f4cd9a00b05d6872957070e8c020f515d.patch
 Patch3:		https://github.com/fifengine/fifengine/commit/454a981a777f141db999809944abbc64ed15c41f.patch
+Patch4:		add-algorithm-include.patch
 Summary:	Isometric game engine
 URL:		http://fifengine.net/
 License:	LGPL

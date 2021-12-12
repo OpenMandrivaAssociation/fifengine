@@ -7,7 +7,7 @@
 
 Name:		fifengine
 Version:	0.4.2
-Release:	8
+Release:	9
 Source0:	https://github.com/fifengine/fifengine/archive/%{name}-%{version}.tar.gz
 #Patch0:		fifengine-0.4.1-lib64.patch
 Patch1:		https://github.com/fifengine/fifengine/commit/cf295fd98a8fba080f6305c27be56d10ab7ce94d.patch

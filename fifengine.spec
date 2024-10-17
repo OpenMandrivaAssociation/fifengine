@@ -15,7 +15,7 @@ Patch2:		https://github.com/fifengine/fifengine/commit/d14f232f4cd9a00b05d687295
 Patch3:		https://github.com/fifengine/fifengine/commit/454a981a777f141db999809944abbc64ed15c41f.patch
 Patch4:		add-algorithm-include.patch
 Summary:	Isometric game engine
-URL:		http://fifengine.net/
+URL:		https://fifengine.net/
 License:	LGPL
 Group:		System/Libraries
 BuildRequires:	cmake ninja
